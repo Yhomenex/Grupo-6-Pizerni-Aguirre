@@ -1,0 +1,25 @@
+{% extends "EntregaApp/padre.html" %}
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+
+<div class="container-fluid">
+    <!-- Boton de retorno-->
+    <br><a class="btn btn-secondary" href="{% url 'equipo' %}">Volver a equipos</a>
+    <!-- Titlo y descripcion-->
+    <h1 class="mt-4">Buscar un Equipo</h1>
+    <h3>Resultados de la búsqueda</h3><br>
+    <!-- Se itera por todos los equipos y se trae las coincidencias por nombre-->
+    {% if equipos %}
+    <ul>
+        {% for equipo in equipos %}
+                <li>{{equipo}}</li>
+                    
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<br><a class="btn btn-secondary" href="{% url 'equiposFormulario' %}">Crear Nuevo Equipo</a>
+{% endblock contenidoQueCambia %}
